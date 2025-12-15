@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Horoscope - Cosmic Destiny</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .month-card {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .current-month {
+            border: 2px solid var(--gold-accent);
+            box-shadow: 0 0 30px rgba(255, 200, 87, 0.3);
+        }
+        .month-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--violet-blue), var(--gold-accent));
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg glass fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-icon me-2"><span>✨</span></div>
+                <span class="brand-text">Cosmic Destiny</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link nav-btn" href="index.html">Home</a></li>
+                    
+                    <!-- Horoscopes Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="horoscopesDropdown" role="button" data-bs-toggle="dropdown">
+                            Horoscopes
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="daily-horoscope.html">Daily</a></li>
+                            <li><a class="dropdown-item" href="weekly-horoscope.html">Weekly</a></li>
+                            <li><a class="dropdown-item active" href="monthly-horoscope.html">Monthly</a></li>
+                            <li><a class="dropdown-item" href="yearly-horoscope.html">Yearly</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Tools Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown">
+                            Tools
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="love-compatibility.html">Compatibility</a></li>
+                            <li><a class="dropdown-item" href="numerology.html">Numerology</a></li>
+                            <li><a class="dropdown-item" href="tarot.html">Tarot</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Explore Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="exploreDropdown" role="button" data-bs-toggle="dropdown">
+                            Explore
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="articles.html">Articles</a></li>
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link nav-btn" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link premium-btn" href="premium-reports.html">Premium</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn register-btn" href="login.html#register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5" style="padding-top: 120px;">
+        <div class="cosmic-bg"></div>
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <h1 class="section-title">Monthly Horoscope</h1>
+                <p class="lead text-muted">Your cosmic journey through the months</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- January -->
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">January</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">A fresh start brings new opportunities. Set intentions and embrace change.</p>
+                            <div class="row g-3 mt-3">
+                                <div class="col-md-4">
+                                    <div class="neo-card-inset p-3 text-center">
+                                        <i class="bi bi-heart-fill text-danger fs-3 mb-2"></i>
+                                        <h6>Love</h6>
+                                        <small>Romantic connections deepen</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="neo-card-inset p-3 text-center">
+                                        <i class="bi bi-briefcase-fill text-success fs-3 mb-2"></i>
+                                        <h6>Career</h6>
+                                        <small>New projects begin</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="neo-card-inset p-3 text-center">
+                                        <i class="bi bi-heart-pulse-fill text-info fs-3 mb-2"></i>
+                                        <h6>Health</h6>
+                                        <small>Focus on wellness</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- February -->
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">February</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Love and relationships take center stage. Nurture connections.</p>
+                        </div>
+                    </div>
+
+                    <!-- March - Current Month -->
+                    <div class="card glass-card month-card current-month fade-in">
+                        <span class="month-badge">March <small>(Current)</small></span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Spring energy brings renewal. Growth and transformation await.</p>
+                            <div class="row g-3 mt-3">
+                                <div class="col-md-6">
+                                    <div class="neo-card-inset p-3">
+                                        <h5><i class="bi bi-heart-fill text-danger me-2"></i>Love</h5>
+                                        <p>Romantic energy peaks mid-month. Express your feelings openly and connect deeply with partners.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="neo-card-inset p-3">
+                                        <h5><i class="bi bi-briefcase-fill text-success me-2"></i>Career</h5>
+                                        <p>Professional growth accelerates. New opportunities emerge. Network and showcase your talents.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="neo-card-inset p-3">
+                                        <h5><i class="bi bi-heart-pulse-fill text-info me-2"></i>Health</h5>
+                                        <p>Vitality increases. Focus on outdoor activities and fresh nutrition. Balance is key.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="neo-card-inset p-3">
+                                        <h5><i class="bi bi-star-fill text-warning me-2"></i>Key Dates</h5>
+                                        <p>March 15-20: Peak energy period<br>March 25: Important decisions<br>March 30: Celebration time</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Remaining months with similar structure -->
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">April</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Action and initiative drive success. Take bold steps forward.</p>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">May</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Stability and growth mark this period. Build on solid foundations.</p>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">June</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Communication flows. Express yourself and connect with others.</p>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">July</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Emotional depth guides you. Trust your intuition.</p>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">August</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Creativity and leadership shine. Inspire others.</p>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">September</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Organization and planning bring success. Attention to detail pays off.</p>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">October</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Balance and harmony are key. Focus on partnerships.</p>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">November</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Transformation and intensity mark this period. Deep insights await.</p>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card month-card fade-in">
+                        <span class="month-badge">December</span>
+                        <div class="card-body p-4">
+                            <h3 class="mb-3">Monthly Overview</h3>
+                            <p class="lead">Reflection and celebration. Review the year and set new goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass mt-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <a href="index.html" class="navbar-brand d-flex align-items-center mb-3" style="text-decoration: none;">
+                        <div class="logo-icon me-2">
+                            <span>✨</span>
+                        </div>
+                        <span class="brand-text">Cosmic Destiny</span>
+                    </a>
+                    <p class="text-muted small">Discover your cosmic destiny with premium astrology insights, horoscopes, and mystical guidance.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="daily-horoscope.html" class="footer-link">Daily Horoscope</a></li>
+                        <li><a href="weekly-horoscope.html" class="footer-link">Weekly Horoscope</a></li>
+                        <li><a href="love-compatibility.html" class="footer-link">Love Compatibility</a></li>
+                        <li><a href="tarot.html" class="footer-link">Tarot Reading</a></li>
+                        <li><a href="premium-reports.html" class="footer-link">Premium Reports</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="articles.html" class="footer-link">Articles</a></li>
+                        <li><a href="gallery.html" class="footer-link">Gallery</a></li>
+                        <li><a href="events.html" class="footer-link">Events</a></li>
+                        <li><a href="numerology.html" class="footer-link">Numerology</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Connect</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li>Email: <a href="mailto:info@cosmicdestiny.com" class="footer-link">info@cosmicdestiny.com</a></li>
+                        <li>Phone: <a href="tel:+1234567890" class="footer-link">+1 (234) 567-890</a></li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="text-center text-muted small">
+                <p>&copy; <span id="currentYearFooter"></span> Cosmic Destiny. All rights reserved. | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

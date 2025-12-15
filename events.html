@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Webinars - Cosmic Destiny</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .calendar-day:hover {
+            background: var(--violet-blue);
+            transform: scale(1.1);
+        }
+        .calendar-day.has-event {
+            background: linear-gradient(135deg, var(--violet-blue), var(--gold-accent));
+            box-shadow: 0 0 15px rgba(108, 92, 231, 0.5);
+        }
+        .calendar-day.today {
+            border: 2px solid var(--gold-accent);
+        }
+        .event-card {
+            margin-bottom: 1.5rem;
+        }
+        .event-card h4 {
+            word-break: break-word;
+            hyphens: auto;
+            line-height: 1.3;
+        }
+        .event-card .badge {
+            white-space: nowrap;
+            display: inline-block;
+        }
+        .event-card .btn {
+            white-space: nowrap;
+            flex-shrink: 0;
+            min-width: fit-content;
+        }
+        .event-card p {
+            word-break: break-word;
+            hyphens: auto;
+        }
+        @media (max-width: 992px) {
+            .event-card .d-flex {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .event-card .btn {
+                align-self: flex-start;
+                width: auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .event-card h4 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg glass fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-icon me-2"><span>✨</span></div>
+                <span class="brand-text">Cosmic Destiny</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link nav-btn" href="index.html">Home</a></li>
+                    
+                    <!-- Horoscopes Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="horoscopesDropdown" role="button" data-bs-toggle="dropdown">
+                            Horoscopes
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="daily-horoscope.html">Daily</a></li>
+                            <li><a class="dropdown-item" href="weekly-horoscope.html">Weekly</a></li>
+                            <li><a class="dropdown-item" href="monthly-horoscope.html">Monthly</a></li>
+                            <li><a class="dropdown-item" href="yearly-horoscope.html">Yearly</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Tools Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown">
+                            Tools
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="love-compatibility.html">Compatibility</a></li>
+                            <li><a class="dropdown-item" href="numerology.html">Numerology</a></li>
+                            <li><a class="dropdown-item" href="tarot.html">Tarot</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Explore Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="exploreDropdown" role="button" data-bs-toggle="dropdown">
+                            Explore
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="articles.html">Articles</a></li>
+                            <li><a class="dropdown-item active" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link nav-btn" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link premium-btn" href="premium-reports.html">Premium</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn register-btn" href="login.html#register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5" style="padding-top: 120px;">
+        <div class="cosmic-bg"></div>
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <h1 class="section-title">Events & Webinars</h1>
+                <p class="lead text-muted">Join our cosmic community events</p>
+            </div>
+
+            <!-- Calendar View -->
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card glass-card-strong p-4">
+                        <h3 class="mb-4 text-center" id="currentMonth"></h3>
+                        <div class="calendar-grid">
+                            <div class="calendar-day" style="background: transparent; border: none; font-weight: 700;">S</div>
+                            <div class="calendar-day" style="background: transparent; border: none; font-weight: 700;">M</div>
+                            <div class="calendar-day" style="background: transparent; border: none; font-weight: 700;">T</div>
+                            <div class="calendar-day" style="background: transparent; border: none; font-weight: 700;">W</div>
+                            <div class="calendar-day" style="background: transparent; border: none; font-weight: 700;">T</div>
+                            <div class="calendar-day" style="background: transparent; border: none; font-weight: 700;">F</div>
+                            <div class="calendar-day" style="background: transparent; border: none; font-weight: 700;">S</div>
+                            <!-- Days will be generated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <!-- Upcoming Events -->
+                    <h3 class="mb-4">Upcoming Events</h3>
+                    
+                    <div class="card glass-card event-card fade-in">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <span class="badge bg-primary mb-2">Webinar</span>
+                                    <h4>Understanding Your Birth Chart</h4>
+                                    <p class="text-muted mb-2"><i class="bi bi-calendar3 me-2"></i>March 15, 2024 | 7:00 PM EST</p>
+                                    <p>Learn to read and interpret your natal chart with our expert astrologers.</p>
+                                </div>
+                                <button class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card event-card fade-in">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <span class="badge bg-success mb-2">Workshop</span>
+                                    <h4>Tarot Reading Masterclass</h4>
+                                    <p class="text-muted mb-2"><i class="bi bi-calendar3 me-2"></i>March 22, 2024 | 6:00 PM EST</p>
+                                    <p>Master the art of tarot reading in this comprehensive workshop.</p>
+                                </div>
+                                <button class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card event-card fade-in">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <span class="badge bg-warning mb-2">Live Session</span>
+                                    <h4>Q&A with Master Astrologer</h4>
+                                    <p class="text-muted mb-2"><i class="bi bi-calendar3 me-2"></i>March 28, 2024 | 8:00 PM EST</p>
+                                    <p>Get your questions answered by our master astrologer in this live session.</p>
+                                </div>
+                                <button class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card glass-card event-card fade-in">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <span class="badge bg-info mb-2">Webinar</span>
+                                    <h4>Love Compatibility Deep Dive</h4>
+                                    <p class="text-muted mb-2"><i class="bi bi-calendar3 me-2"></i>April 5, 2024 | 7:30 PM EST</p>
+                                    <p>Explore synastry and composite charts for relationship insights.</p>
+                                </div>
+                                <button class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass mt-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <a href="index.html" class="navbar-brand d-flex align-items-center mb-3" style="text-decoration: none;">
+                        <div class="logo-icon me-2">
+                            <span>✨</span>
+                        </div>
+                        <span class="brand-text">Cosmic Destiny</span>
+                    </a>
+                    <p class="text-muted small">Discover your cosmic destiny with premium astrology insights, horoscopes, and mystical guidance.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="daily-horoscope.html" class="footer-link">Daily Horoscope</a></li>
+                        <li><a href="weekly-horoscope.html" class="footer-link">Weekly Horoscope</a></li>
+                        <li><a href="love-compatibility.html" class="footer-link">Love Compatibility</a></li>
+                        <li><a href="tarot.html" class="footer-link">Tarot Reading</a></li>
+                        <li><a href="premium-reports.html" class="footer-link">Premium Reports</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="articles.html" class="footer-link">Articles</a></li>
+                        <li><a href="gallery.html" class="footer-link">Gallery</a></li>
+                        <li><a href="events.html" class="footer-link">Events</a></li>
+                        <li><a href="numerology.html" class="footer-link">Numerology</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Connect</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li>Email: <a href="mailto:info@cosmicdestiny.com" class="footer-link">info@cosmicdestiny.com</a></li>
+                        <li>Phone: <a href="tel:+1234567890" class="footer-link">+1 (234) 567-890</a></li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="text-center text-muted small">
+                <p>&copy; <span id="currentYearFooter"></span> Cosmic Destiny. All rights reserved. | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+    </script>
+    <script src="js/main.js"></script>
+    <script>
+        const today = new Date();
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        document.getElementById('currentMonth').textContent = monthNames[today.getMonth()] + ' ' + today.getFullYear();
+        
+        const firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
+        const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+        const calendarGrid = document.querySelector('.calendar-grid');
+        
+        // Add empty cells for days before month starts
+        for (let i = 0; i < firstDay; i++) {
+            const emptyDay = document.createElement('div');
+            emptyDay.className = 'calendar-day';
+            calendarGrid.appendChild(emptyDay);
+        }
+        
+        // Add days of the month
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            dayElement.textContent = day;
+            if (day === today.getDate()) {
+                dayElement.classList.add('today');
+            }
+            if ([15, 22, 28].includes(day)) {
+                dayElement.classList.add('has-event');
+            }
+            calendarGrid.appendChild(dayElement);
+        }
+    </script>
+</body>
+</html>

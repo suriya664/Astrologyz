@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Astrology & Horoscope Website - Discover your cosmic destiny">
+    <title>Cosmic Destiny - Premium Astrology & Horoscope</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg glass fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-icon me-2">
+                    <span>✨</span>
+                </div>
+                <span class="brand-text">Cosmic Destiny</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link nav-btn active" href="index.html">Home</a></li>
+                    
+                    <!-- Horoscopes Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="horoscopesDropdown" role="button" data-bs-toggle="dropdown">
+                            Horoscopes
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="daily-horoscope.html">Daily</a></li>
+                            <li><a class="dropdown-item" href="weekly-horoscope.html">Weekly</a></li>
+                            <li><a class="dropdown-item" href="monthly-horoscope.html">Monthly</a></li>
+                            <li><a class="dropdown-item" href="yearly-horoscope.html">Yearly</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Tools Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown">
+                            Tools
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="love-compatibility.html">Compatibility</a></li>
+                            <li><a class="dropdown-item" href="numerology.html">Numerology</a></li>
+                            <li><a class="dropdown-item" href="tarot.html">Tarot</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Explore Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="exploreDropdown" role="button" data-bs-toggle="dropdown">
+                            Explore
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="articles.html">Articles</a></li>
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link nav-btn" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link premium-btn" href="premium-reports.html">Premium</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn register-btn" href="login.html#register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="cosmic-bg"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="hero-title">Discover Your Cosmic Destiny</h1>
+                    <p class="hero-subtitle">Unveil the mysteries of the universe with personalized horoscopes, tarot readings, and astrological insights</p>
+                    <div class="hero-buttons d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                        <a href="daily-horoscope.html" class="btn btn-primary btn-lg">Get Daily Horoscope</a>
+                        <a href="premium-reports.html" class="btn btn-gold btn-lg">Explore Premium</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Horoscopes -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Today's Featured Horoscopes</h2>
+            <p class="text-center text-muted mb-5">Discover what the stars have in store for you</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 d-flex flex-column">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="zodiac-icon aries me-3">♈</div>
+                                <div>
+                                    <h5 class="card-title mb-0">Aries</h5>
+                                    <small class="text-muted">Mar 21 - Apr 19</small>
+                                </div>
+                            </div>
+                            <p class="card-text flex-grow-1">The stars align in your favor today. Trust your intuition and embrace new opportunities that come your way.</p>
+                            <a href="zodiac-sign.html?sign=aries" class="btn-link mt-auto">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 d-flex flex-column">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="zodiac-icon taurus me-3">♉</div>
+                                <div>
+                                    <h5 class="card-title mb-0">Taurus</h5>
+                                    <small class="text-muted">Apr 20 - May 20</small>
+                                </div>
+                            </div>
+                            <p class="card-text flex-grow-1">Stability and growth mark your path. Focus on long-term goals and relationships that bring you joy.</p>
+                            <a href="zodiac-sign.html?sign=taurus" class="btn-link mt-auto">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 d-flex flex-column">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="zodiac-icon gemini me-3">♊</div>
+                                <div>
+                                    <h5 class="card-title mb-0">Gemini</h5>
+                                    <small class="text-muted">May 21 - Jun 20</small>
+                                </div>
+                            </div>
+                            <p class="card-text flex-grow-1">Communication flows effortlessly. Express your thoughts and connect with others on a deeper level.</p>
+                            <a href="zodiac-sign.html?sign=gemini" class="btn-link mt-auto">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 d-flex flex-column">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="zodiac-icon cancer me-3">♋</div>
+                                <div>
+                                    <h5 class="card-title mb-0">Cancer</h5>
+                                    <small class="text-muted">Jun 21 - Jul 22</small>
+                                </div>
+                            </div>
+                            <p class="card-text flex-grow-1">Emotional depth guides you. Trust your feelings and nurture your relationships with care.</p>
+                            <a href="zodiac-sign.html?sign=cancer" class="btn-link mt-auto">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 d-flex flex-column">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="zodiac-icon leo me-3">♌</div>
+                                <div>
+                                    <h5 class="card-title mb-0">Leo</h5>
+                                    <small class="text-muted">Jul 23 - Aug 22</small>
+                                </div>
+                            </div>
+                            <p class="card-text flex-grow-1">Your creative energy shines bright. Lead with confidence and inspire others around you.</p>
+                            <a href="zodiac-sign.html?sign=leo" class="btn-link mt-auto">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card glass-card h-100 d-flex flex-column">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="zodiac-icon virgo me-3">♍</div>
+                                <div>
+                                    <h5 class="card-title mb-0">Virgo</h5>
+                                    <small class="text-muted">Aug 23 - Sep 22</small>
+                                </div>
+                            </div>
+                            <p class="card-text flex-grow-1">Attention to detail pays off. Organize your thoughts and take practical steps forward.</p>
+                            <a href="zodiac-sign.html?sign=virgo" class="btn-link mt-auto">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Zodiac Wheel -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Explore Your Zodiac Sign</h2>
+            <p class="text-center text-muted mb-5">Click on any sign to discover your cosmic profile</p>
+            
+            <div class="row g-3">
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=aries" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♈</div>
+                        <div class="zodiac-name">Aries</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=taurus" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♉</div>
+                        <div class="zodiac-name">Taurus</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=gemini" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♊</div>
+                        <div class="zodiac-name">Gemini</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=cancer" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♋</div>
+                        <div class="zodiac-name">Cancer</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=leo" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♌</div>
+                        <div class="zodiac-name">Leo</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=virgo" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♍</div>
+                        <div class="zodiac-name">Virgo</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=libra" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♎</div>
+                        <div class="zodiac-name">Libra</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=scorpio" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♏</div>
+                        <div class="zodiac-name">Scorpio</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=sagittarius" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♐</div>
+                        <div class="zodiac-name">Sagittarius</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=capricorn" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♑</div>
+                        <div class="zodiac-name">Capricorn</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=aquarius" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♒</div>
+                        <div class="zodiac-name">Aquarius</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="zodiac-sign.html?sign=pisces" class="zodiac-card neo-card">
+                        <div class="zodiac-symbol">♓</div>
+                        <div class="zodiac-name">Pisces</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card glass-card-strong text-center p-5">
+                        <h2 class="section-title mb-4">Ready to Unlock Your Cosmic Potential?</h2>
+                        <p class="lead mb-4">Get personalized astrological reports, detailed compatibility analysis, and exclusive insights</p>
+                        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                            <a href="premium-reports.html" class="btn btn-gold btn-lg">Get Premium Access</a>
+                            <a href="love-compatibility.html" class="btn btn-outline-light btn-lg">Check Compatibility</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass mt-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <a href="index.html" class="navbar-brand d-flex align-items-center mb-3" style="text-decoration: none;">
+                        <div class="logo-icon me-2">
+                            <span>✨</span>
+                        </div>
+                        <span class="brand-text">Cosmic Destiny</span>
+                    </a>
+                    <p class="text-muted small">Discover your cosmic destiny with premium astrology insights, horoscopes, and mystical guidance.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="daily-horoscope.html" class="footer-link">Daily Horoscope</a></li>
+                        <li><a href="weekly-horoscope.html" class="footer-link">Weekly Horoscope</a></li>
+                        <li><a href="love-compatibility.html" class="footer-link">Love Compatibility</a></li>
+                        <li><a href="tarot.html" class="footer-link">Tarot Reading</a></li>
+                        <li><a href="premium-reports.html" class="footer-link">Premium Reports</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="articles.html" class="footer-link">Articles</a></li>
+                        <li><a href="gallery.html" class="footer-link">Gallery</a></li>
+                        <li><a href="events.html" class="footer-link">Events</a></li>
+                        <li><a href="numerology.html" class="footer-link">Numerology</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Connect</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li>Email: <a href="mailto:info@cosmicdestiny.com" class="footer-link">info@cosmicdestiny.com</a></li>
+                        <li>Phone: <a href="tel:+1234567890" class="footer-link">+1 (234) 567-890</a></li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="text-center text-muted small">
+                <p>&copy; <span id="currentYearFooter"></span> Cosmic Destiny. All rights reserved. | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

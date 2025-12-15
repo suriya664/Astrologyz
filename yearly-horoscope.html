@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yearly Horoscope - Cosmic Destiny</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--violet-blue), var(--gold-accent));
+            box-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: linear-gradient(180deg, var(--violet-blue), transparent);
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .planet-orbit {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed rgba(108, 92, 231, 0.3);
+            border-radius: 50%;
+            position: relative;
+            margin: 2rem auto;
+            animation: rotate 20s linear infinite;
+        }
+        .planet {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--gold-accent), var(--violet-blue));
+            border-radius: 50%;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(255, 200, 87, 0.6);
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .timeline-item h4 {
+            word-break: keep-all;
+            line-height: 1.4;
+            white-space: normal;
+        }
+        .timeline-item h4 .text-gold {
+            display: inline-block;
+        }
+        .timeline-item .badge {
+            white-space: nowrap;
+            display: inline-block;
+        }
+        .timeline-item p {
+            word-break: break-word;
+            hyphens: auto;
+        }
+        .timeline-item strong {
+            white-space: nowrap;
+        }
+        @media (max-width: 768px) {
+            .timeline-item {
+                padding-left: 2rem;
+                margin-bottom: 2rem;
+            }
+            .timeline-item h4 {
+                font-size: 1.1rem;
+                word-break: break-word;
+            }
+            .planet-orbit {
+                width: 150px;
+                height: 150px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+                word-break: break-word;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg glass fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-icon me-2"><span>✨</span></div>
+                <span class="brand-text">Cosmic Destiny</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link nav-btn" href="index.html">Home</a></li>
+                    
+                    <!-- Horoscopes Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="horoscopesDropdown" role="button" data-bs-toggle="dropdown">
+                            Horoscopes
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="daily-horoscope.html">Daily</a></li>
+                            <li><a class="dropdown-item" href="weekly-horoscope.html">Weekly</a></li>
+                            <li><a class="dropdown-item" href="monthly-horoscope.html">Monthly</a></li>
+                            <li><a class="dropdown-item active" href="yearly-horoscope.html">Yearly</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Tools Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown">
+                            Tools
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="love-compatibility.html">Compatibility</a></li>
+                            <li><a class="dropdown-item" href="numerology.html">Numerology</a></li>
+                            <li><a class="dropdown-item" href="tarot.html">Tarot</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Explore Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="exploreDropdown" role="button" data-bs-toggle="dropdown">
+                            Explore
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="articles.html">Articles</a></li>
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link nav-btn" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link premium-btn" href="premium-reports.html">Premium</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn register-btn" href="login.html#register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5" style="padding-top: 120px;">
+        <div class="cosmic-bg"></div>
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <h1 class="section-title">Yearly Horoscope <span id="currentYear"></span></h1>
+                <p class="lead text-muted">Your cosmic journey through the year</p>
+            </div>
+
+            <!-- Planetary Orbits Animation -->
+            <div class="text-center mb-5 fade-in">
+                <div class="planet-orbit">
+                    <div class="planet"></div>
+                </div>
+                <p class="text-muted mt-3">The planets align for your journey</p>
+            </div>
+
+            <!-- Yearly Timeline -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card glass-card-strong p-4">
+                        <h3 class="mb-4 text-center">Annual Forecast Timeline</h3>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item fade-in">
+                                <div class="card neo-card">
+                                    <div class="card-body">
+                                        <h4 class="text-gold">Q1: Foundation & Growth</h4>
+                                        <p class="mb-2"><strong>January - March</strong></p>
+                                        <p>The year begins with strong foundations. Focus on setting clear goals and building relationships. This quarter favors new beginnings and establishing routines that will serve you throughout the year.</p>
+                                        <div class="mt-3">
+                                            <span class="badge bg-primary me-2">New Beginnings</span>
+                                            <span class="badge bg-success">Growth</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item fade-in">
+                                <div class="card neo-card">
+                                    <div class="card-body">
+                                        <h4 class="text-gold">Q2: Action & Expansion</h4>
+                                        <p class="mb-2"><strong>April - June</strong></p>
+                                        <p>Energy levels peak during this period. Take action on your goals and expand your horizons. Career opportunities and personal growth accelerate. Travel and exploration are favored.</p>
+                                        <div class="mt-3">
+                                            <span class="badge bg-warning me-2">High Energy</span>
+                                            <span class="badge bg-info">Expansion</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item fade-in">
+                                <div class="card neo-card">
+                                    <div class="card-body">
+                                        <h4 class="text-gold">Q3: Reflection & Transformation</h4>
+                                        <p class="mb-2"><strong>July - September</strong></p>
+                                        <p>A period of deep reflection and transformation. Review your progress and make necessary adjustments. Relationships deepen, and personal insights lead to significant growth. Focus on inner work.</p>
+                                        <div class="mt-3">
+                                            <span class="badge bg-danger me-2">Transformation</span>
+                                            <span class="badge bg-secondary">Reflection</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item fade-in">
+                                <div class="card neo-card">
+                                    <div class="card-body">
+                                        <h4 class="text-gold">Q4: Achievement & Celebration</h4>
+                                        <p class="mb-2"><strong>October - December</strong></p>
+                                        <p>The year culminates in achievement and celebration. Your hard work pays off, and you see the fruits of your labor. This is a time for gratitude, celebration, and planning for the year ahead.</p>
+                                        <div class="mt-3">
+                                            <span class="badge bg-success me-2">Achievement</span>
+                                            <span class="badge bg-warning">Celebration</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Themes Cards -->
+            <div class="row g-4 mt-4">
+                <div class="col-md-4 fade-in">
+                    <div class="card glass-card text-center h-100">
+                        <div class="card-body">
+                            <div class="zodiac-icon-large mx-auto mb-3">💫</div>
+                            <h4>Love & Relationships</h4>
+                            <p>Deep connections and meaningful partnerships mark this year. Single individuals may find lasting love, while couples strengthen their bonds.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="card glass-card text-center h-100">
+                        <div class="card-body">
+                            <div class="zodiac-icon-large mx-auto mb-3">🚀</div>
+                            <h4>Career & Finance</h4>
+                            <p>Professional growth and financial stability are highlighted. New opportunities arise, and your hard work is recognized and rewarded.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in">
+                    <div class="card glass-card text-center h-100">
+                        <div class="card-body">
+                            <div class="zodiac-icon-large mx-auto mb-3">🌟</div>
+                            <h4>Health & Wellness</h4>
+                            <p>Focus on holistic well-being. Balance physical, mental, and spiritual health. New wellness routines bring lasting benefits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass mt-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <a href="index.html" class="navbar-brand d-flex align-items-center mb-3" style="text-decoration: none;">
+                        <div class="logo-icon me-2">
+                            <span>✨</span>
+                        </div>
+                        <span class="brand-text">Cosmic Destiny</span>
+                    </a>
+                    <p class="text-muted small">Discover your cosmic destiny with premium astrology insights, horoscopes, and mystical guidance.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="daily-horoscope.html" class="footer-link">Daily Horoscope</a></li>
+                        <li><a href="weekly-horoscope.html" class="footer-link">Weekly Horoscope</a></li>
+                        <li><a href="love-compatibility.html" class="footer-link">Love Compatibility</a></li>
+                        <li><a href="tarot.html" class="footer-link">Tarot Reading</a></li>
+                        <li><a href="premium-reports.html" class="footer-link">Premium Reports</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="articles.html" class="footer-link">Articles</a></li>
+                        <li><a href="gallery.html" class="footer-link">Gallery</a></li>
+                        <li><a href="events.html" class="footer-link">Events</a></li>
+                        <li><a href="numerology.html" class="footer-link">Numerology</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Connect</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li>Email: <a href="mailto:info@cosmicdestiny.com" class="footer-link">info@cosmicdestiny.com</a></li>
+                        <li>Phone: <a href="tel:+1234567890" class="footer-link">+1 (234) 567-890</a></li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="text-center text-muted small">
+                <p>&copy; <span id="currentYearFooter"></span> Cosmic Destiny. All rights reserved. | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

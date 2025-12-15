@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daily Horoscope for all 12 Zodiac Signs - Cosmic Destiny">
+    <title>Daily Horoscope - Cosmic Destiny</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .horoscope-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .horoscope-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        .zodiac-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .zodiac-icon-large {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--violet-blue), var(--violet-blue-dark));
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+        }
+        .date-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--glass-white);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .zodiac-header h3 {
+            word-break: keep-all;
+            white-space: nowrap;
+        }
+        .horoscope-card .badge {
+            white-space: nowrap;
+        }
+        .horoscope-card .card-text {
+            word-break: break-word;
+            hyphens: auto;
+        }
+        @media (max-width: 768px) {
+            .zodiac-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            .zodiac-icon-large {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            .zodiac-header h3 {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg glass fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <div class="logo-icon me-2">
+                    <span>✨</span>
+                </div>
+                <span class="brand-text">Cosmic Destiny</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link nav-btn" href="index.html">Home</a></li>
+                    
+                    <!-- Horoscopes Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="horoscopesDropdown" role="button" data-bs-toggle="dropdown">
+                            Horoscopes
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item active" href="daily-horoscope.html">Daily</a></li>
+                            <li><a class="dropdown-item" href="weekly-horoscope.html">Weekly</a></li>
+                            <li><a class="dropdown-item" href="monthly-horoscope.html">Monthly</a></li>
+                            <li><a class="dropdown-item" href="yearly-horoscope.html">Yearly</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Tools Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown">
+                            Tools
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="love-compatibility.html">Compatibility</a></li>
+                            <li><a class="dropdown-item" href="numerology.html">Numerology</a></li>
+                            <li><a class="dropdown-item" href="tarot.html">Tarot</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Explore Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="exploreDropdown" role="button" data-bs-toggle="dropdown">
+                            Explore
+                        </a>
+                        <ul class="dropdown-menu glass">
+                            <li><a class="dropdown-item" href="articles.html">Articles</a></li>
+                            <li><a class="dropdown-item" href="events.html">Events</a></li>
+                            <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link nav-btn" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link premium-btn" href="premium-reports.html">Premium</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link nav-btn register-btn" href="login.html#register">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-5" style="padding-top: 120px;">
+        <div class="cosmic-bg"></div>
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <h1 class="section-title">Daily Horoscope</h1>
+                <p class="lead text-muted">Discover what the stars have in store for you today</p>
+                <span class="date-badge">
+                    <i class="bi bi-calendar3 me-2"></i>
+                    <span id="currentDate"></span>
+                </span>
+            </div>
+
+            <!-- Zodiac Signs Grid -->
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Aries">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♈</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Aries</h3>
+                                    <small class="text-muted">Mar 21 - Apr 19</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Your romantic energy is high today. Express your feelings openly.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">New opportunities await. Take initiative and lead with confidence.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Stay active and maintain your energy levels throughout the day.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 7 | Lucky Color: Red</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Taurus">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♉</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Taurus</h3>
+                                    <small class="text-muted">Apr 20 - May 20</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Stability in relationships brings you peace. Nurture your connections.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Focus on long-term goals. Your persistence will pay off.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Take time for relaxation. Balance work with rest.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 4 | Lucky Color: Green</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Gemini">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♊</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Gemini</h3>
+                                    <small class="text-muted">May 21 - Jun 20</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Communication is key. Share your thoughts with your partner.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Your versatility shines. Adapt to new situations easily.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Mental clarity is important. Practice mindfulness today.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 5 | Lucky Color: Yellow</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Cancer">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♋</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Cancer</h3>
+                                    <small class="text-muted">Jun 21 - Jul 22</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Emotional depth guides you. Trust your intuition in relationships.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Your nurturing nature helps colleagues. Collaboration is favored.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Pay attention to emotional well-being. Self-care is essential.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 2 | Lucky Color: Silver</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Leo">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♌</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Leo</h3>
+                                    <small class="text-muted">Jul 23 - Aug 22</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Your charisma attracts others. Show your generous heart.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Leadership opportunities arise. Shine in the spotlight.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">High energy levels. Channel it into creative pursuits.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 1 | Lucky Color: Gold</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Virgo">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♍</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Virgo</h3>
+                                    <small class="text-muted">Aug 23 - Sep 22</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Attention to detail in relationships strengthens bonds.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Your analytical skills are sharp. Organize and plan effectively.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Maintain a balanced diet. Focus on wellness routines.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 6 | Lucky Color: Brown</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Libra">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♎</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Libra</h3>
+                                    <small class="text-muted">Sep 23 - Oct 22</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Harmony in relationships. Seek balance and compromise.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Diplomacy serves you well. Build partnerships today.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Balance is key. Avoid extremes in your routine.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 3 | Lucky Color: Pink</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Scorpio">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♏</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Scorpio</h3>
+                                    <small class="text-muted">Oct 23 - Nov 21</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Intense connections deepen. Trust your instincts.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Your determination drives success. Focus on transformation.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Emotional release is healing. Practice self-reflection.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 8 | Lucky Color: Deep Red</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Sagittarius">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♐</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Sagittarius</h3>
+                                    <small class="text-muted">Nov 22 - Dec 21</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Adventure in love. Explore new experiences together.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Expansion opportunities. Think big and take risks.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Stay active. Outdoor activities boost your energy.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 9 | Lucky Color: Purple</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Capricorn">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♑</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Capricorn</h3>
+                                    <small class="text-muted">Dec 22 - Jan 19</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Commitment deepens. Show your reliable nature.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Ambition pays off. Climb towards your goals steadily.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Structure your routine. Discipline brings wellness.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 10 | Lucky Color: Black</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Aquarius">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♒</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Aquarius</h3>
+                                    <small class="text-muted">Jan 20 - Feb 18</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Friendship in love. Connect on intellectual levels.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Innovation leads. Embrace new technologies and ideas.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Mental stimulation is key. Stay curious and active.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 11 | Lucky Color: Blue</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-in" data-search="Pisces">
+                    <div class="card glass-card horoscope-card h-100">
+                        <div class="card-body">
+                            <div class="zodiac-header">
+                                <div class="zodiac-icon-large">♓</div>
+                                <div>
+                                    <h3 class="card-title mb-0">Pisces</h3>
+                                    <small class="text-muted">Feb 19 - Mar 20</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary mb-2">Love</span>
+                                <p class="card-text">Romantic dreams come true. Follow your heart.</p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-success mb-2">Career</span>
+                                <p class="card-text">Creativity flows. Express yourself through your work.</p>
+                            </div>
+                            <div>
+                                <span class="badge bg-info mb-2">Health</span>
+                                <p class="card-text">Rest and recharge. Listen to your body's needs.</p>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">Lucky Number: 12 | Lucky Color: Sea Green</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass mt-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <a href="index.html" class="navbar-brand d-flex align-items-center mb-3" style="text-decoration: none;">
+                        <div class="logo-icon me-2">
+                            <span>✨</span>
+                        </div>
+                        <span class="brand-text">Cosmic Destiny</span>
+                    </a>
+                    <p class="text-muted small">Discover your cosmic destiny with premium astrology insights, horoscopes, and mystical guidance.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="daily-horoscope.html" class="footer-link">Daily Horoscope</a></li>
+                        <li><a href="weekly-horoscope.html" class="footer-link">Weekly Horoscope</a></li>
+                        <li><a href="love-compatibility.html" class="footer-link">Love Compatibility</a></li>
+                        <li><a href="tarot.html" class="footer-link">Tarot Reading</a></li>
+                        <li><a href="premium-reports.html" class="footer-link">Premium Reports</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="articles.html" class="footer-link">Articles</a></li>
+                        <li><a href="gallery.html" class="footer-link">Gallery</a></li>
+                        <li><a href="events.html" class="footer-link">Events</a></li>
+                        <li><a href="numerology.html" class="footer-link">Numerology</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="footer-title">Connect</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li>Email: <a href="mailto:info@cosmicdestiny.com" class="footer-link">info@cosmicdestiny.com</a></li>
+                        <li>Phone: <a href="tel:+1234567890" class="footer-link">+1 (234) 567-890</a></li>
+                    </ul>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="text-center text-muted small">
+                <p>&copy; <span id="currentYearFooter"></span> Cosmic Destiny. All rights reserved. | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+        // Set current date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+    </script>
+</body>
+</html>
+
